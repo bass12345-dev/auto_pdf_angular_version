@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #222831;
+}
+
+:root {
+  --amora-color1: #003135;
+  --amora-color2: #244855;
+  --amora-color3: #964734;
+}
+.bg-amora1 {
+  background-color: var(--amora-color1);
+}
+.bg-amora2 {
+  background-color: var(--amora-color2);
+}
+.border-amora1 {
+  border-color: var(--amora-color1) !important;
+}
+.submit-button:hover {
+  background-color: var(--amora-color3);
+}
+.menu a {
+  text-decoration: none;
+}
+.select2-results__group {
+  color: #000 !important;
+  margin-left: 7%;
+}
