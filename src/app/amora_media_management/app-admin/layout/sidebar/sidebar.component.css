@@ -1,0 +1,40 @@
+.sidebar {
+    background-color: #003135;
+    height: 100%;
+}
+
+.header-title a {
+    color: #DB380F;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.header-title .media-title{
+    color: #fff !important;
+}
+
+
+mat-nav-list {
+    margin-top: 40px;
+
+    .menu-active {
+        border-right: 7px solid #DB380F;
+    }
+
+    .active {
+        color: #DB380F !important
+    }
+
+    .entry{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        color: #fff;
+    }
+    
+}
+
+
+
