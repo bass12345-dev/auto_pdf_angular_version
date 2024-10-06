@@ -5,10 +5,17 @@
   }
   
   .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+    padding: 50px;
+  }
+
+  mat-card {
+    background-color: #003135;
+    text-align: center;
+    color: #DB380F;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 15px;
+    height: 7rem;
   }
   
   .example-sidenav {

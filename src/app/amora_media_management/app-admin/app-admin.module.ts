@@ -10,13 +10,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ManageEmployeesComponent } from './pages/manage-employees/manage-employees.component';
+import { AllPdfComponent } from './pages/all-pdf/all-pdf.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppAdminComponent,
     SidebarComponent,
-    TopbarComponent
+    TopbarComponent,
+    DashboardComponent,
+    ManageEmployeesComponent,
+    AllPdfComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +32,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatTableModule
 
   ]
 })

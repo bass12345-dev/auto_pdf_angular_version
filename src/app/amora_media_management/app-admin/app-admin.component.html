@@ -1,7 +1,12 @@
 <mat-drawer-container class="example-container" autosize>
   <app-topbar (is_open)="toggle_menu()"></app-topbar>
-  <mat-drawer class="example-sidenav" mode="side" opened="{{is_open}}">
-    <app-sidebar></app-sidebar>
+  <mat-drawer class="example-sidenav" mode="side" opened="{{is_open}}" >
+    <app-sidebar (dataEmitter)="received_data($event)"></app-sidebar>
   </mat-drawer>
-  <div class="example-sidenav-content"></div>
+  <div class="example-sidenav-content">
+    <mat-card appearance="outlined">
+      <mat-card-content>{{card_title}}</mat-card-content>
+    </mat-card>
+    <router-outlet></router-outlet>
+  </div>
 </mat-drawer-container>
