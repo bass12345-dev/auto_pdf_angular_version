@@ -20,11 +20,13 @@ mat-nav-list {
 
     .menu-active {
         border-right: 7px solid #DB380F;
+
+        .active {
+            color: #DB380F !important
+        }
     }
 
-    .active {
-        color: #DB380F !important
-    }
+    
 
     .entry{
         display: flex;

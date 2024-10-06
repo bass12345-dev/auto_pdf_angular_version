@@ -1,15 +1,7 @@
-<!-- <app-topbar></app-topbar>
-<app-sidebar></app-sidebar>
-<p>app-admin works!</p> -->
-<mat-drawer-container class="example-container" autosize >
-    <app-topbar></app-topbar>
-    <mat-drawer class="example-sidenav"   mode="side" opened="true">
-      <app-sidebar ></app-sidebar>
-    </mat-drawer>
-  
-    <div class="example-sidenav-content">
-      
-    </div>
-  
-  </mat-drawer-container>
-  
+<mat-drawer-container class="example-container" autosize>
+  <app-topbar (is_open)="toggle_menu()"></app-topbar>
+  <mat-drawer class="example-sidenav" mode="side" opened="{{is_open}}">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <div class="example-sidenav-content"></div>
+</mat-drawer-container>

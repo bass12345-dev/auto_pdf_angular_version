@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-topbar',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent {
+
+  @Output() public is_open = new EventEmitter<void>();
+
+
+  toggle_menu(){
+    this.is_open.emit();
+  }
 
 }
