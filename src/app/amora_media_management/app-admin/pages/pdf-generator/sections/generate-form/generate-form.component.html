@@ -135,23 +135,11 @@
             bindLabel="guideline_name" 
             bindValue="guideline_id" 
             groupBy="guideline_category"
-            placeholder="Select Plugins"
+            placeholder="Select Standard Information Additional Information"
             [multiple]="true"
             >
           </ng-select>
-          <mat-spinner [hidden]="spinner"></mat-spinner>
-
-        
-       
-
-             
-
-    
-       
-
-         
-
-            
+          <mat-spinner [hidden]="spinner"></mat-spinner>     
           </div>
         </div>
       </div>
@@ -165,53 +153,40 @@
         <div class="col-md-12">
           <div class="mx-4">
             <label class="form-label">Title Font</label>
-            <select
-              class="form-select single-select-field"
-              name="cat2_fonts"
-              data-placeholder="Select Title Font"
+            <ng-select [items]="fonts" 
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            placeholder="Select Fonts"
             >
-              <option></option>
-
-              <option value="85">Montserrat</option>
-
-              <option value="86">Gobold Bold</option>
-
-              <option value="87">Kanit Bold</option>
-
-              <option value="88">SF Pro Display Bold</option>
-
-              <option value="127" disabled>
-                Montserrat Bold No Notion Link
-              </option>
-            </select>
+            </ng-select>
+            <mat-spinner [hidden]="spinner"></mat-spinner>     
           </div>
         </div>
         <div class="col-md-12">
           <div class="mx-4">
             <label class="form-label">Title Style</label>
-            <select
-              class="form-select single-select-field"
-              name="cat2_title_style"
-              data-placeholder="Select Title Style"
+            <ng-select [items]="title_style" 
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            placeholder="Select Title Style"
             >
-              <option></option>
-
-              <option value="111">Punch Style</option>
-            </select>
+            </ng-select>
+            <mat-spinner [hidden]="spinner"></mat-spinner>     
           </div>
         </div>
         <div class="col-md-12">
           <div class="mx-4">
             <label class="form-label">Title Effects</label>
-            <select
-              class="form-select single-select-field"
-              name="cat2_title_effects"
-              data-placeholder="Select Title Effects"
+            <ng-select [items]="title_effects" 
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            placeholder="Select Title Effects"
             >
-              <option></option>
-
-              <option value="117" disabled>Grow Effect No Notion Link</option>
-            </select>
+            </ng-select>
+            <mat-spinner [hidden]="spinner"></mat-spinner>     
           </div>
         </div>
         <div class="col-md-12">
@@ -243,150 +218,16 @@
               <label class="form-label">Title Additional Information</label>
               <span class="text-danger">*Multiple Select</span>
             </div>
-            <select
-              class="form-select multiple-select-clear-field"
-              name="cat2_additional_information"
-              data-placeholder="Select Title Additional Information"
-              multiple
+            <ng-select [items]="custom"
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            groupBy="guideline_category"
+            placeholder="Select Title Additional Information"
+            [multiple]="true"
             >
-              <option></option>
-
-              <optgroup label="Titles">
-                <option value="1">POGG GUIDELINES</option>
-
-                <option value="8">Creating Short-Form Titles</option>
-
-                <option value="9">Short-Form Editing Space</option>
-
-                <option value="10">Short-Form Title Standards</option>
-
-                <option value="11">
-                  General Interview Podcast General Guidelines
-                </option>
-
-                <option value="16">Long-Form Trimming Guidelines</option>
-
-                <option value="17">Podcast Cutting Guidelines</option>
-
-                <option value="18">Sizzle Reels Standard Editing Guide</option>
-
-                <option value="19">Sizzle Reels Clips Cutting</option>
-
-                <option value="20">Transition Clips</option>
-
-                <option value="23">Compiling Clips General Guide</option>
-
-                <option value="24">Standard Clips Trimming Guidelines</option>
-
-                <option value="26">Introduction Clips</option>
-
-                <option value="27">Struggle Clips</option>
-
-                <option value="28">Valuable Info Clips</option>
-
-                <option value="29">Cliffhanger Clips</option>
-
-                <option value="30">Regular Podcast Interview Voiceovers</option>
-
-                <option value="31">General POGGIE Clips</option>
-
-                <option value="32">Event Success Preview</option>
-
-                <option value="33">Value Statements</option>
-
-                <option value="34">QnA</option>
-
-                <option value="35">Phone Calls</option>
-
-                <option value="36">Testimonials</option>
-
-                <option value="37">Story Clips</option>
-
-                <option value="55">Celebration/Applause</option>
-
-                <option value="56">Left/Right Close-Up</option>
-
-                <option value="69">Censor Block</option>
-
-                <option value="70">Gaussian Blur Censor</option>
-
-                <option value="71">Mosaic Blur Censor</option>
-
-                <option value="72">Standard Text Coloring Styles</option>
-
-                <option value="84">CapCut AI Voices</option>
-
-                <option value="126">Sharing Premier Projects</option>
-
-                <option value="128">Zoom in/out Intro</option>
-              </optgroup>
-
-              <optgroup label="Typography Add-Ons">
-                <option value="89">Hair Spaces</option>
-
-                <option value="90">IOS Emoji</option>
-              </optgroup>
-
-              <optgroup label="Effect Stacks">
-                <option value="92">Push In Effect</option>
-
-                <option value="93">Gradient Ramp Overlay</option>
-              </optgroup>
-
-              <optgroup label="AE Distort Effects">
-                <option value="94">Lens Distortion</option>
-
-                <option value="95">Warp Stabilizer</option>
-
-                <option value="96">Transform Effect</option>
-              </optgroup>
-
-              <optgroup label="AE Perspective Effects">
-                <option value="97">Perspective Effect</option>
-              </optgroup>
-
-              <optgroup label="AE Blur And Sharpen Effects">
-                <option value="98">Gaussian Blur Effect</option>
-
-                <option value="99">Mosaic Blur Effect</option>
-              </optgroup>
-
-              <optgroup label="AE Stylize Effects">
-                <option value="100">Alpha Glow Effects</option>
-              </optgroup>
-
-              <optgroup label="AE Generate Effects">
-                <option value="101">Gradient Ramp</option>
-              </optgroup>
-
-              <optgroup label="AE Distort">
-                <option value="102">Detail Preserving Upscale</option>
-              </optgroup>
-
-              <optgroup label="Caption Review">
-                <option value="103">
-                  Spell Checking With Caption Review Bot
-                </option>
-
-                <option value="104">Using Spell Checks in Premiere Pro</option>
-
-                <option value="105">Exporting Captions as a Text File</option>
-
-                <option value="106">Preface: Caption Review Guidelines</option>
-
-                <option value="107">Summary: Caption Review Guidelines</option>
-              </optgroup>
-
-              <optgroup label="Short Form Titles">
-                <option value="109">
-                  Preface: Short-Form Title Guidelines
-                </option>
-
-                <option value="110">
-                  Summary: Short-Form Title Guidelines
-                </option>
-              </optgroup>
-            </select>
+          </ng-select>
+          <mat-spinner [hidden]="spinner"></mat-spinner>     
           </div>
         </div>
       </div>
