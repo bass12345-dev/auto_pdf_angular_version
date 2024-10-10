@@ -15,6 +15,18 @@ import { ManageEmployeesComponent } from './pages/manage-employees/manage-employ
 import { AllPdfComponent } from './pages/all-pdf/all-pdf.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { EmployeeTableComponent } from './pages/manage-employees/sections/employee-table/employee-table.component';
+import { PdfTableComponent } from './pages/all-pdf/sections/pdf-table/pdf-table.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { PdfGeneratorComponent } from './pages/pdf-generator/pdf-generator.component';
+import { PdfLimitedTableComponent } from './pages/pdf-generator/sections/pdf-limited-table/pdf-limited-table.component';
+import { GenerateFormComponent } from './pages/pdf-generator/sections/generate-form/generate-form.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -23,7 +35,12 @@ import {MatTableModule} from '@angular/material/table';
     TopbarComponent,
     DashboardComponent,
     ManageEmployeesComponent,
-    AllPdfComponent
+    AllPdfComponent,
+    EmployeeTableComponent,
+    PdfTableComponent,
+    PdfGeneratorComponent,
+    PdfLimitedTableComponent,
+    GenerateFormComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +51,14 @@ import {MatTableModule} from '@angular/material/table';
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    NgSelectModule,
+    NgOptionHighlightModule,
+    HttpClientModule
 
   ]
 })

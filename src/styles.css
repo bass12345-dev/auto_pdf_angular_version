@@ -1,3 +1,5 @@
+
+
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
@@ -10,7 +12,10 @@ body {
   --amora-color1: #003135;
   --amora-color2: #244855;
   --amora-color3: #964734;
+  --amora-color4: #DB380F;
 }
+
+/* Backround Color */
 .bg-amora1 {
   background-color: var(--amora-color1);
 }
@@ -20,6 +25,27 @@ body {
 .border-amora1 {
   border-color: var(--amora-color1) !important;
 }
+
+/* Text Color */
+
+.text-amora1 {
+  color: var(--amora-color1);
+}
+
+.text-amora2 {
+  color: var(--amora-color2);
+}
+
+.text-amora3{
+  color: var(--amora-color3);
+}
+
+.text-amora4{
+  color: var(--amora-color4);
+}
+
+
+
 .submit-button:hover {
   background-color: var(--amora-color3);
 }
@@ -40,4 +66,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   top: -40px;
   border-radius: 20px;
   margin: 0px 30px;
+}
+
+table th{
+  background-color: var(--amora-color1) !important;
+  color: #fff !important;
+}
+
+mat-card-content {
+  padding: 15px 50px 15px 50px !important;
+}
+mat-spinner {
+  zoom: 0.4
+}
+
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option .highlighted { 
+  background-color: orange !important;
+  font-weight: bold !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
 }

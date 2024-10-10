@@ -13,7 +13,6 @@ export interface Menu {
 })
 export class SidebarComponent {
 
-
   items : Menu[] = [
       {
         name:'Dashboard',
@@ -33,6 +32,11 @@ export class SidebarComponent {
         icon: 'notes',
         url: 'all-pdf'
       },
+      {
+        name:'Generate PDF',
+        icon: 'notes',
+        url: 'pdf-generator'
+      }
   ];
   set_item : any;
   card_title : string = '';
@@ -47,8 +51,6 @@ export class SidebarComponent {
         this.dataEmitter.emit(item.name);
       }
     })
-   
-    
   }
   set_active(item:any){
     this.set_item = item.url

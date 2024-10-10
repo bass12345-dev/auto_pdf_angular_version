@@ -1,0 +1,1619 @@
+<div class="card p-4">
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center text-white">
+    <h3 class="display-7 fw-normal text-black">
+      Create Guides Below <span class="text-danger">↓↓↓</span>
+    </h3>
+  </div>
+
+  <form id="generate_form" class="row g-4 mt-2">
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5 class="mx-3">
+          *Category 1 : <strong>Standard Information</strong>
+        </h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">File Format</label>
+              <ng-select [items]="file_formats" 
+              bindLabel="name" 
+              bindValue="name" 
+              placeholder="Select File Format"
+              >
+              </ng-select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4" >
+            <label class="form-label">Premiere Pro Plugins</label>
+            <ng-select [items]="plugins"
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            placeholder="Select Plugins"
+          
+            >
+            </ng-select>
+            <mat-spinner [hidden]="spinner"></mat-spinner>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">After Effects Plugins</label>
+            <ng-select [items]="effects"
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            placeholder="Select After Effects"
+          
+            >
+            </ng-select>
+            <mat-spinner [hidden]="spinner"></mat-spinner>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Branding Colors</label>
+            <!-- <select class="form-select multiple-select-clear-field" name="branding_colors"  data-placeholder="Select Branding Colors" multiple>
+              
+              <option value="#000000">#000000</option>
+              
+              <option value="#FFFFFF">#FFFFFF</option>
+              
+              <option value="#9cf542">#9cf542</option>
+              
+              <option value="#42d4f5">#42d4f5</option>
+              
+           </select> -->
+
+            <div id="input-container">
+              <div class="input-group" style="width: 50%">
+                <!-- <input type="color" class="form-control " style="height: 40px;" name="colors[]" onchange="displayHex(this)" placeholder="Enter value" />
+                 <button type="button" class="btn btn-danger" onclick="removeInput(this)"><i class="fa fa-close"></i></button>
+                 <span class="hex-display mx-2">#000000</span> -->
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary mt-2 add-new-branding-colors"
+              onclick="addInput()"
+            >
+              Add
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Reference</label>
+            <input
+              class="form-control"
+              placeholder="Insert Link Here"
+              name="reference"
+            />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">Frame Rate</label>
+              
+            </div>
+            <ng-select [items]="frame_rate" 
+              bindLabel="name" 
+              bindValue="name" 
+              placeholder="Select File Format"
+              >
+              </ng-select>
+            
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Positioning Style</label>
+            <ng-select [items]="positioning"
+              [hidden]="guideline_is_hidden"
+              bindLabel="guideline_name" 
+              bindValue="guideline_id" 
+              placeholder="Select Positioning Style"
+              >
+            </ng-select>
+            <mat-spinner [hidden]="spinner"></mat-spinner>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label"
+                >Standard Information Additional Information</label
+              >
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <ng-select [items]="custom"
+            [hidden]="guideline_is_hidden"
+            bindLabel="guideline_name" 
+            bindValue="guideline_id" 
+            groupBy="guideline_category"
+            placeholder="Select Plugins"
+            [multiple]="true"
+            >
+          </ng-select>
+          <mat-spinner [hidden]="spinner"></mat-spinner>
+
+        
+       
+
+             
+
+    
+       
+
+         
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5 class="mx-3">*Category 2 : <strong>Title</strong></h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Title Font</label>
+            <select
+              class="form-select single-select-field"
+              name="cat2_fonts"
+              data-placeholder="Select Title Font"
+            >
+              <option></option>
+
+              <option value="85">Montserrat</option>
+
+              <option value="86">Gobold Bold</option>
+
+              <option value="87">Kanit Bold</option>
+
+              <option value="88">SF Pro Display Bold</option>
+
+              <option value="127" disabled>
+                Montserrat Bold No Notion Link
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Title Style</label>
+            <select
+              class="form-select single-select-field"
+              name="cat2_title_style"
+              data-placeholder="Select Title Style"
+            >
+              <option></option>
+
+              <option value="111">Punch Style</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Title Effects</label>
+            <select
+              class="form-select single-select-field"
+              name="cat2_title_effects"
+              data-placeholder="Select Title Effects"
+            >
+              <option></option>
+
+              <option value="117" disabled>Grow Effect No Notion Link</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Title Color</label>
+            <div id="input-container-title-colors">
+              <div class="input-group" style="width: 50%">
+                <!-- <input type="color" class="form-control " style="height: 40px;" name="title_colors[]" onchange="displayHex(this)" placeholder="Enter value" />
+                 <button type="button" class="btn btn-danger" onclick="removeInput(this)"><i class="fa fa-close"></i></button>
+                 <span class="hex-display mx-2">#000000</span> -->
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary mt-2 add-new-title-colors"
+              onclick="addInputTitleColors()"
+            >
+              Add
+            </button>
+            <!-- <select class="form-select single-select-field" name="cat2_title_color" data-placeholder="Select Title Color">
+              <option></option>
+           </select> -->
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">Title Additional Information</label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat2_additional_information"
+              data-placeholder="Select Title Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5 class="mx-3">*Category 3 : <strong>Captions</strong></h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Caption Font</label>
+            <select
+              class="form-select single-select-field"
+              name="cat3_caption_font"
+              data-placeholder="Select Caption Font"
+            >
+              <option></option>
+
+              <option value="85">Montserrat</option>
+
+              <option value="86">Gobold Bold</option>
+
+              <option value="87">Kanit Bold</option>
+
+              <option value="88">SF Pro Display Bold</option>
+
+              <option value="127" disabled>
+                Montserrat Bold No Notion Link
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Caption Style</label>
+            <select
+              class="form-select single-select-field"
+              name="cat3_caption_style"
+              data-placeholder="Select Caption Style"
+            >
+              <option></option>
+
+              <option value="112">Black Shadow Style</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Caption Effects</label>
+            <select
+              class="form-select single-select-field"
+              name="cat3_caption_effects"
+              data-placeholder="Select Caption Effects"
+            >
+              <option></option>
+
+              <option value="119">Vertical Growth</option>
+
+              <option value="120">Light Glow</option>
+
+              <option value="121" disabled>
+                Glow Animated Text No Notion Link
+              </option>
+
+              <option value="122">Moving Captions</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Caption Color</label>
+            <div id="input-container-caption-colors">
+              <div class="input-group" style="width: 50%">
+                <!-- <input type="color" class="form-control " style="height: 40px;" name="caption_colors[]" onchange="displayHex(this)" placeholder="Enter value" />
+                <button type="button" class="btn btn-danger" onclick="removeInput(this)"><i class="fa fa-close"></i></button>
+                <span class="hex-display mx-2">#000000</span> -->
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary mt-2 add-new-caption-colors"
+              onclick="addInputCaptionColors()"
+            >
+              Add
+            </button>
+            <!-- <select class="form-select single-select-field" name="cat2_title_color" data-placeholder="Select Title Color">
+             <option></option>
+          </select> -->
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">Caption Additional Information</label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat3_additional_information"
+              data-placeholder="Select Caption Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5>*Category 4 : <strong>B-Roll</strong></h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">B-Roll Guidelines</label>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat4_broll_guidelines"
+              data-placeholder="Select B-Roll Guidelines"
+            >
+              <option></option>
+
+              <option value="12">B-Roll Placement & Timing</option>
+
+              <option value="13">Selecting B-Roll</option>
+
+              <option value="14">Short-Form B-Roll Length</option>
+
+              <option value="15">Upscaling B-Roll</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">B-Roll Placement Guidelines</label>
+            <select
+              class="form-select single-select-field"
+              name="cat4_b_roll_placement"
+              data-placeholder="Select B-Roll Placement Guidelines"
+            >
+              <option></option>
+
+              <option value="12">B-Roll Placement & Timing</option>
+
+              <option value="13">Selecting B-Roll</option>
+
+              <option value="14">Short-Form B-Roll Length</option>
+
+              <option value="15">Upscaling B-Roll</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">B-Roll Source</label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat4_b_roll_source"
+              data-placeholder="Select B-Roll Source"
+              multiple
+            >
+              <option></option>
+
+              <option value="80">Stock Footage B-Roll</option>
+
+              <option value="81">Social Media B-Roll</option>
+
+              <option value="82">Creator Database</option>
+
+              <option value="83">Vertical Website B-Roll</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">B-Roll Additional Information</label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat4_additional_information"
+              data-placeholder="Select B-Roll Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5>*Category 5 : <strong>Transitions</strong></h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label"></label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat5_transitions"
+              data-placeholder="Select Your Transitions"
+              multiple
+            >
+              <option></option>
+
+              <option value="73">Standard Cut</option>
+
+              <option value="74">Premiere Composer Rotate Transition</option>
+
+              <option value="75">Premiere Composer Panning Left/Right</option>
+
+              <option value="76">Premiere Composer Standard Cut</option>
+
+              <option value="77">Premiere Composer Zoom in/Out</option>
+
+              <option value="78">Premiere Composer Fade to Black</option>
+
+              <option value="79">
+                Premiere Composer Light-Leak Transition
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label"
+                >Transitions Additional Information</label
+              >
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat5_additional_information"
+              data-placeholder="Select Transitions Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5>*Category 6 : <strong>Visuals</strong></h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label"></label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat6_visuals"
+              data-placeholder="Select Your Visuals"
+              multiple
+            >
+              <option></option>
+
+              <option value="123">Pop-ups - No Notion Link</option>
+
+              <option value="124">Fade ins - No Notion Link</option>
+
+              <option value="125">Slide ins - No Notion Link</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">Visual Additional Information</label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat6_additional_information"
+              data-placeholder="Select Visual Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5>*Category 7 : <strong>Audio</strong></h5>
+      </div>
+
+      <div class="col-md-12">
+        <div class="mx-4">
+          <div class="d-flex flex-row justify-content-between">
+            <label class="form-label"></label>
+            <span class="text-danger">*Multiple Select</span>
+          </div>
+          <select
+            class="form-select multiple-select-clear-field"
+            name="cat7_audio"
+            data-placeholder="Select Your Audio Guidelines"
+            multiple
+          >
+            <option></option>
+
+            <option value="5">Standard Audio Mixing Template</option>
+
+            <option value="6">Using & Checking LUFS Guide</option>
+
+            <option value="7">Cutting Audio Pops</option>
+          </select>
+        </div>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <div class="d-flex flex-row justify-content-between">
+              <label class="form-label">Audio Additional Information</label>
+              <span class="text-danger">*Multiple Select</span>
+            </div>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat7_additional_information"
+              data-placeholder="Select Audio Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="col-12">
+      <div class="border border-amora1 rounded-pill p-2">
+        <h5>*Category 8 : <strong>Additional Information</strong></h5>
+      </div>
+      <div class="row g-3 mt-2">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label"> </label>
+            <select
+              class="form-select multiple-select-clear-field"
+              name="cat8_additional_information"
+              data-placeholder="Select Additional Information"
+              multiple
+            >
+              <option></option>
+
+              <optgroup label="Titles">
+                <option value="1">POGG GUIDELINES</option>
+
+                <option value="8">Creating Short-Form Titles</option>
+
+                <option value="9">Short-Form Editing Space</option>
+
+                <option value="10">Short-Form Title Standards</option>
+
+                <option value="11">
+                  General Interview Podcast General Guidelines
+                </option>
+
+                <option value="16">Long-Form Trimming Guidelines</option>
+
+                <option value="17">Podcast Cutting Guidelines</option>
+
+                <option value="18">Sizzle Reels Standard Editing Guide</option>
+
+                <option value="19">Sizzle Reels Clips Cutting</option>
+
+                <option value="20">Transition Clips</option>
+
+                <option value="23">Compiling Clips General Guide</option>
+
+                <option value="24">Standard Clips Trimming Guidelines</option>
+
+                <option value="26">Introduction Clips</option>
+
+                <option value="27">Struggle Clips</option>
+
+                <option value="28">Valuable Info Clips</option>
+
+                <option value="29">Cliffhanger Clips</option>
+
+                <option value="30">Regular Podcast Interview Voiceovers</option>
+
+                <option value="31">General POGGIE Clips</option>
+
+                <option value="32">Event Success Preview</option>
+
+                <option value="33">Value Statements</option>
+
+                <option value="34">QnA</option>
+
+                <option value="35">Phone Calls</option>
+
+                <option value="36">Testimonials</option>
+
+                <option value="37">Story Clips</option>
+
+                <option value="55">Celebration/Applause</option>
+
+                <option value="56">Left/Right Close-Up</option>
+
+                <option value="69">Censor Block</option>
+
+                <option value="70">Gaussian Blur Censor</option>
+
+                <option value="71">Mosaic Blur Censor</option>
+
+                <option value="72">Standard Text Coloring Styles</option>
+
+                <option value="84">CapCut AI Voices</option>
+
+                <option value="126">Sharing Premier Projects</option>
+
+                <option value="128">Zoom in/out Intro</option>
+              </optgroup>
+
+              <optgroup label="Typography Add-Ons">
+                <option value="89">Hair Spaces</option>
+
+                <option value="90">IOS Emoji</option>
+              </optgroup>
+
+              <optgroup label="Effect Stacks">
+                <option value="92">Push In Effect</option>
+
+                <option value="93">Gradient Ramp Overlay</option>
+              </optgroup>
+
+              <optgroup label="AE Distort Effects">
+                <option value="94">Lens Distortion</option>
+
+                <option value="95">Warp Stabilizer</option>
+
+                <option value="96">Transform Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Perspective Effects">
+                <option value="97">Perspective Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Blur And Sharpen Effects">
+                <option value="98">Gaussian Blur Effect</option>
+
+                <option value="99">Mosaic Blur Effect</option>
+              </optgroup>
+
+              <optgroup label="AE Stylize Effects">
+                <option value="100">Alpha Glow Effects</option>
+              </optgroup>
+
+              <optgroup label="AE Generate Effects">
+                <option value="101">Gradient Ramp</option>
+              </optgroup>
+
+              <optgroup label="AE Distort">
+                <option value="102">Detail Preserving Upscale</option>
+              </optgroup>
+
+              <optgroup label="Caption Review">
+                <option value="103">
+                  Spell Checking With Caption Review Bot
+                </option>
+
+                <option value="104">Using Spell Checks in Premiere Pro</option>
+
+                <option value="105">Exporting Captions as a Text File</option>
+
+                <option value="106">Preface: Caption Review Guidelines</option>
+
+                <option value="107">Summary: Caption Review Guidelines</option>
+              </optgroup>
+
+              <optgroup label="Short Form Titles">
+                <option value="109">
+                  Preface: Short-Form Title Guidelines
+                </option>
+
+                <option value="110">
+                  Summary: Short-Form Title Guidelines
+                </option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="col-12">
+      <div class="row g-3">
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Insert Name Here</label>
+            <input class="form-control" placeholder="Name" name="name" />
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mx-4">
+            <label class="form-label">Extra Information</label>
+            <textarea
+              class="form-control"
+              name="extra_information"
+              rows="6"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="prog_cent" hidden>
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+
+      <p class="message"></p>
+    </div>
+    <p id="progress-text"></p>
+    <p id="progress-text1"></p>
+    <!-- <button type="submit" class="btn bg-amora2 text-white rounded-pill submit-button disabled">Generate PDF</button> -->
+    <button
+      type="submit"
+      class="btn bg-primary rounded-pill text-white submit-button"
+    >
+      Generate PDF
+    </button>
+  </form>
+</div>
