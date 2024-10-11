@@ -31,6 +31,14 @@ export class GenerateFormComponent {
   fonts       : GUIDELINES[] = [];
   title_style : GUIDELINES[] = [];
   title_effects : GUIDELINES[] = [];
+  //Captions
+  captions_style : GUIDELINES[] = [];
+  caption_effects: GUIDELINES[] = [];
+  //B Roll
+  b_roll_system : GUIDELINES[] = [];
+
+
+
   //Custom
   custom      : GUIDELINES[] = [];
   guideline_is_hidden : boolean = true;
@@ -52,6 +60,11 @@ export class GenerateFormComponent {
       this.fonts       = response.fonts;
       this.title_style = response.title_style
       this.title_effects = response.title_effects;
+      //Captions
+      this.captions_style = response.captions_style;
+      this.caption_effects = response.caption_effects;
+      //B ROll System
+      //
       //Custom
       this.custom = response.custom;
       this.guideline_is_hidden = false;
